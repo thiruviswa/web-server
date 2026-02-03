@@ -8,10 +8,10 @@ pipeline {
   stages {
 
     stage('Checkout') {
-      steps 
+      steps {
         git branch: 'test', url: 'https://github.com/thiruviswa/web-server.git'
           }
-
+    }
     stage('Build Image') {
       steps {
         sh "docker build -t $IMAGE ."
