@@ -8,8 +8,9 @@ pipeline {
   stages {
 
     stage('Checkout') {
-      steps { checkout scm }
-    }
+      steps 
+        git branch: 'test', url: 'https://github.com/thiruviswa/web-server.git'
+          }
 
     stage('Build Image') {
       steps {
