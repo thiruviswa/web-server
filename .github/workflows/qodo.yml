@@ -1,0 +1,19 @@
+name: Qodo PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  qodo-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Qodo Review
+        uses: Codium-ai/pr-agent@v0
+        with:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          fail_if_issues_found: "true"   # 🔥 important
